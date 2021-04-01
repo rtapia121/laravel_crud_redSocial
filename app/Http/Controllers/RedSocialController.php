@@ -7,9 +7,21 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Comentarios;
+use Illuminate\Support\Facades\Auth;
 
 class RedSocialController extends Controller
 {
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +46,7 @@ class RedSocialController extends Controller
      */
     public function create()
     {
-        //
+        return view('home.create');
     }
 
     /**
@@ -45,7 +57,14 @@ class RedSocialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //tomo id del usuario logeado
+        $id_user = Auth::user()->id;
+        Comentarios::create([
+            'id_usuario' => $id_user,
+            'comentario' => $request->comentario 
+        ]);
+
+        return redirect('home');
     }
 
     /**
@@ -54,9 +73,9 @@ class RedSocialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+       //
     }
 
     /**
