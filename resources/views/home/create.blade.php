@@ -118,26 +118,9 @@
                     </div>
                     <!--main-left-sidebar end-->
                 </div>
-                <div class="col-lg-6 col-md-8 no-pd">
-                    <div class="main-ws-sec">
-                        {!! Form::open(['url'=>'/home/subir']) !!}
-                        <div class="post-topbar row mb-4">
-                            <div class="col-md-2">
-                                <img class="user-picy" src="{{asset('images/resources/user-pic.png')}}" alt="">
-                            </div>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text" name="comentario">
-                            </div>
-                            <div class="col-md-2">
-                                <input class="btn btn-danger" type="submit" value="Enviar">
-                            </div>
-                        </div>
-                        <!--post-topbar end-->
-                     {!! Form::close() !!}
-                        <!--posts-section end-->
-                    </div>
-                    <!--main-ws-sec end-->
-                </div>
+                {!! Form::open(['url'=>'/home/subir']) !!}
+                    @include('home.form')
+                {!! Form::close() !!}
                 <div class="col-lg-3 pd-right-none no-pd">
                     <div class="right-sidebar">
                         <div class="widget widget-about">

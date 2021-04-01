@@ -11,7 +11,7 @@
                             <div class="user-profile">
                                 <div class="username-dt">
                                     <div class="usr-pic">
-                                        <img src="images/resources/user-pic.png" alt="">
+                                        <img src="{{asset('images/resources/user-pic.png')}}" alt="">
                                     </div>
                                 </div>
                                 <!--username-dt end-->
@@ -44,7 +44,7 @@
                             <!--sd-title end-->
                             <div class="suggestions-list">
                                 <div class="suggestion-usd">
-                                    <img src="images/resources/s1.png" alt="">
+                                    <img src="{{asset('images/resources/s1.png')}}" alt="">
                                     <div class="sgt-text">
                                         <h4>Jessica William</h4>
                                         <span>Graphic Designer</span>
@@ -118,61 +118,12 @@
                     </div>
                     <!--main-left-sidebar end-->
                 </div>
-                <div class="col-lg-6 col-md-8 no-pd">
-                    <div class="main-ws-sec">
-                        <div class="post-topbar row mb-4">
-                            <div class="col-md-2">
-                               <a href="{{ url('home/create')}}" class="btn btn-danger">Comentario</a>
-                            </div>
-                        </div>
-                        <!--post-topbar end-->
-                        @foreach($lstComentarios as $comentario)
-                        <div class="posts-section">
-                            <div class="post-bar">
-                                <div class="post_topbar">
-                                    <div class="usy-dt">
-                                        <img src="images/resources/us-pic.png" alt="">
-                                        <div class="usy-name">
-                                            <h3>{{ $comentario->name}}</h3>
-                                            <span><img src="images/clock.png" alt="">3 min ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="ed-opts">
-                                        <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-                                        <ul class="ed-options">
-                                            <li><a href="#" title="">Edit Post</a></li>
-                                            <li><a href="#" title="">Unsaved</a></li>
-                                            <li><a href="#" title="">Unbid</a></li>
-                                            <li><a href="#" title="">Close</a></li>
-                                            <li><a href="#" title="">Hide</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="epi-sec">
-                                    <ul class="descp">
-                                        <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                        <li><img src="images/icon9.png" alt=""><span>India</span></li>
-                                    </ul>
-                                    {!! Form::open(['method' => 'DELETE', 'url'=> '/home/'.$comentario->id]) !!}
-                                    <ul class="bk-links">
-                                        <li><a href="{!! 'home/'. $comentario->id.'/edit' !!}" title=""><i class="la la-pencil"></i></a></li>
-                                        <li><a href="#" title=""><i class="la la-trash"></i></a></li>
-                                    </ul>
-                                    {!!Form::close() !!}
-                                </div>
-                                <div class="job_descp">
-                                    <h3>{{$comentario->email}}</h3>
-                                    <p>{{$comentario->comentario}}</p>
-                                </div>
-                            </div>
-                            <!--post-bar end-->
-                        </div>
-                        @endforeach
-                        <!--posts-section end--> 
 
-                    </div>
-                    <!--main-ws-sec end-->
-                </div>
+                {!! Form::open(['method'=>'PATCH'], 'url'=>'/home/'.$comentario->id.'/') !!}
+                    @include('home.form')
+                {!! Form::close() !!}
+
+                <!--main-ws-sec end-->
                 <div class="col-lg-3 pd-right-none no-pd">
                     <div class="right-sidebar">
                         <div class="widget widget-about">

@@ -86,7 +86,8 @@ class RedSocialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comentario = Comentarios::find($id);
+        return view('home.edit')->with(['comentario'=> $comentario]);
     }
 
     /**
