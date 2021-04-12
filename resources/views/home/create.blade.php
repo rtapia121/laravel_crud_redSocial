@@ -118,9 +118,14 @@
                     </div>
                     <!--main-left-sidebar end-->
                 </div>
-                {!! Form::open(['url'=>'/home/subir']) !!}
-                    @include('home.form')
-                {!! Form::close() !!}
+                   
+                    <div class="col-lg-6 col-md-8 no-pd">
+                        <div class="main-ws-sec">
+                            {!! Form::open(['url'=>'home/subir']) !!}
+                                @include('home.form')
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
                 <div class="col-lg-3 pd-right-none no-pd">
                     <div class="right-sidebar">
                         <div class="widget widget-about">

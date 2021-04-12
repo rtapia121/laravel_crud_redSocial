@@ -122,7 +122,7 @@
                     <div class="main-ws-sec">
                         <div class="post-topbar row mb-4">
                             <div class="col-md-2">
-                               <a href="{{ url('home/create')}}" class="btn btn-danger">Comentario</a>
+                               <a href="{{ url('home/create') }}" class="btn btn-danger">Comentario</a>
                             </div>
                         </div>
                         <!--post-topbar end-->
@@ -133,7 +133,7 @@
                                     <div class="usy-dt">
                                         <img src="images/resources/us-pic.png" alt="">
                                         <div class="usy-name">
-                                            <h3>{{ $comentario->name}}</h3>
+                                            <h3>{{ $comentario->name }}</h3>
                                             <span><img src="images/clock.png" alt="">3 min ago</span>
                                         </div>
                                     </div>
@@ -153,10 +153,10 @@
                                         <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
                                         <li><img src="images/icon9.png" alt=""><span>India</span></li>
                                     </ul>
-                                    {!! Form::open(['method' => 'DELETE', 'url'=> '/home/'.$comentario->id]) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'url' => '/home/'.$comentario->id_comentario]) !!}
                                     <ul class="bk-links">
-                                        <li><a href="{!! 'home/'. $comentario->id.'/edit' !!}" title=""><i class="la la-pencil"></i></a></li>
-                                        <li><a href="#" title=""><i class="la la-trash"></i></a></li>
+                                        <li><a href="{!! 'home/'. $comentario->id_comentario.'/edit' !!}" title=""><i class="la la-pencil"></i></a></li>
+                                        <li><button><i class="la la-trash"></i></button></li> 
                                     </ul>
                                     {!!Form::close() !!}
                                 </div>

@@ -118,11 +118,13 @@
                     </div>
                     <!--main-left-sidebar end-->
                 </div>
-
-                {!! Form::open(['method'=>'PATCH'], 'url'=>'/home/'.$comentario->id.'/') !!}
-                    @include('home.form')
-                {!! Form::close() !!}
-
+                <div class="col-lg-6 col-md-8 no-pd">
+                    <div class="main-ws-sec">
+                        {!! Form::open(['method' => 'PATCH', 'url' => '/home/'.$data['comment']->id]) !!}
+                            @include('home.form')
+                        {!! Form::close() !!}
+                    </div>
+                </div>
                 <!--main-ws-sec end-->
                 <div class="col-lg-3 pd-right-none no-pd">
                     <div class="right-sidebar">

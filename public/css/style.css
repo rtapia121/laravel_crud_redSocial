@@ -6616,6 +6616,11 @@ ul#myTab {
 .bk-links.bklink li {
     padding-right: 0;
 }
+
+.bk-links.bklink li button {
+    border: none;
+}
+
 .bidsbtn{
 	position: relative;
 }

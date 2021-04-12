@@ -32,7 +32,7 @@ class RedSocialController extends Controller
 
         $comentarios = DB::table('comentarios')
                         ->join('users','comentarios.id_usuario', "=", 'users.id')
-                        ->select('comentarios.*','users.*')
+                        ->select('comentarios.*', 'comentarios.id as id_comentario','users.*')
                         ->orderBy('comentarios.id','DESC')
                         ->get();
 
@@ -46,7 +46,13 @@ class RedSocialController extends Controller
      */
     public function create()
     {
-        return view('home.create');
+        $action =1; //action crear 
+
+        $data = [
+            'action' => $action,
+            'comment' => ""
+        ];
+        return view('home.create')->with(['data'=>$data]);
     }
 
     /**
@@ -86,8 +92,15 @@ class RedSocialController extends Controller
      */
     public function edit($id)
     {
+        $action =2; //action editar 
         $comentario = Comentarios::find($id);
-        return view('home.edit')->with(['comentario'=> $comentario]);
+
+        $data = [
+            'action' => $action,
+            'comment' => $comentario
+        ];
+
+        return view('home.edit')->with(['data' => $data]);
     }
 
     /**
@@ -99,7 +112,12 @@ class RedSocialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comentario = Comentarios::find($id);
+        $comentario->update([
+            'comentario' => $request->comentario
+        ]);
+
+        return redirect('/home');
     }
 
     /**
